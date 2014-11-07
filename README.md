@@ -45,11 +45,8 @@ etc.), mention it here.
 
 ### Beginning with windows_role_logstash
 
-The very basic steps needed for a user to get the module up and running.
-
-If your most recent release breaks compatibility or requires particular steps
-for upgrading, you may wish to include an additional section here: Upgrading
-(For an example, see http://forge.puppetlabs.com/puppetlabs/firewall).
+cd C:\ProgramData\logstash-1.4.2\bin\
+logstash agent -f logstash.conf
 
 ## Usage
 
