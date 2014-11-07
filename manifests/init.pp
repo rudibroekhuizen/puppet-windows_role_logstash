@@ -38,7 +38,7 @@
 class windows_role_logstash {
 
 # Install package
-  class { 'windows_logstash::package':
+  class { 'windows_logstash::packages':
     #require          => Class["windows_base::files"],
   }
 
