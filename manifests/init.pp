@@ -35,8 +35,12 @@
 #
 # Copyright 2014 Your name here, unless otherwise noted.
 #
-class windows_role_logstash {
-
-
+class windows_role_logstash (
+  $configfile_hash = undef,
+  ) {
+  
+  class { 'windows_logstash'
+    configfile_hash => $configfile_hash,
+  }
 
 }
