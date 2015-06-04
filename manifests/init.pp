@@ -39,7 +39,7 @@ class windows_role_logstash (
   $configfile_hash = undef,
   ) {
   
-  class { 'windows_logstash'
+  class { 'windows_logstash':
     configfile_hash => $configfile_hash,
   }
 
