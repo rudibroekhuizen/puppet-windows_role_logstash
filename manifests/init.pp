@@ -43,23 +43,17 @@ class windows_role_logstash (
   package { jq:
     ensure   => 1.5,
     provider => chocolatey,
-  }
+  } ->
   
-  file { 'files':
-    ensure => directory,
-    path   => 'C:/ProgramData/logstash-1.4.2/files'
-  }
-  
+  class { 'windows_logstash':
+    configfile_hash => $configfile_hash,
+  } ->
+
   # Copy scripts and other files
   file { 'C:/ProgramData/logstash-1.4.2/files':
     source             => 'puppet:///modules/windows_role_logtash',
     recurse            => true,
     source_permissions => ignore,
-    require            => File[ 'files' ]
-  } ->
-  
-  class { 'windows_logstash':
-    configfile_hash => $configfile_hash,
   }
 
 }
