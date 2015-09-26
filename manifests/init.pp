@@ -39,18 +39,19 @@ class windows_role_logstash (
   $configfile_hash = undef,
   ) {
 
-  # JSON magic
+   # JSON magic
   package { jq:
     ensure   => 1.5,
     provider => chocolatey,
   }
   
-  # Collect events
-  file { 'C:/Windows/Temp/script-eventlog-01.ps1':
-    source             => 'puppet:///modules/windows_role_logstash/script-eventlog-01.ps1',
+  # Copy scripts and other files
+  file { 'C:/ProgramData/logstash-1.4.2/files':
+    source             => 'puppet:///modules/windows_role_logtash',
+    recurse            => true,
     source_permissions => ignore,
   }
-
+  
   class { 'windows_logstash':
     configfile_hash => $configfile_hash,
     require         => [File['C:/Windows/Temp/script-eventlog-01.ps1'], Package['jq']],
