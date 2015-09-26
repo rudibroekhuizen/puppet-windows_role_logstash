@@ -49,9 +49,9 @@ class windows_role_logstash (
     configfile_hash => $configfile_hash,
   } ->
 
-  # Copy scripts and other files
+  # Copy scripts and other helper files
   file { 'C:/ProgramData/logstash-1.4.2/files':
-    source             => 'puppet:///modules/windows_role_logtash',
+    source             => 'puppet:///modules/windows_role_logstash',
     recurse            => true,
     source_permissions => ignore,
   }
