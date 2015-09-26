@@ -45,12 +45,17 @@ class windows_role_logstash (
     provider => chocolatey,
   }
   
+  file { 'files':
+    ensure => directory,
+    path   =? 'C:/ProgramData/logstash-1.4.2'
+  }
+  
   # Copy scripts and other files
   file { 'C:/ProgramData/logstash-1.4.2/files':
     source             => 'puppet:///modules/windows_role_logtash',
     recurse            => true,
     source_permissions => ignore,
-    #require            => File[ 'C:/ProgramData/logstash-1.4.2/files' ]
+    require            => File[ 'files' ]
   } ->
   
   class { 'windows_logstash':
