@@ -47,7 +47,7 @@ class windows_role_logstash (
   
   file { 'files':
     ensure => directory,
-    path   => 'C:/ProgramData/logstash-1.4.2'
+    path   => 'C:/ProgramData/logstash-1.4.2/files'
   }
   
   # Copy scripts and other files
