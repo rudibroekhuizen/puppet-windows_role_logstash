@@ -43,7 +43,7 @@ class windows_role_logstash (
   package { jq:
     ensure   => 1.5,
     provider => chocolatey,
-  } ->
+  }
   
   class { 'windows_logstash':
     configfile_hash => $configfile_hash,
