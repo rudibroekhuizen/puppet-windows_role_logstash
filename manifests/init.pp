@@ -50,11 +50,10 @@ class windows_role_logstash (
     source             => 'puppet:///modules/windows_role_logtash',
     recurse            => true,
     source_permissions => ignore,
-  }
+  } ->
   
   class { 'windows_logstash':
     configfile_hash => $configfile_hash,
-    require         => [File['C:/Windows/Temp/script-eventlog-01.ps1'], Package['jq']],
   }
 
 }
