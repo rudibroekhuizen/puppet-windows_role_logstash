@@ -47,6 +47,7 @@ class windows_role_logstash (
   
   class { 'windows_logstash':
     configfile_hash => $configfile_hash,
+    require         => Package ["jq"],
   }
 
   # Copy scripts and other helper files
