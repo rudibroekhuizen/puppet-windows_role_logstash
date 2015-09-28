@@ -50,7 +50,7 @@ class windows_role_logstash (
     require         => Package ["jq"],
   }
 
-  # Copy scripts and other helper files
+  # Copy scripts
   file { 'C:/ProgramData/logstash-1.4.2/scripts':
     source             => 'puppet:///modules/windows_role_logstash',
     recurse            => true,
