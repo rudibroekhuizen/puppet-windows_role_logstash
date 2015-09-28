@@ -51,7 +51,7 @@ class windows_role_logstash (
   }
 
   # Copy scripts and other helper files
-  file { 'C:/ProgramData/logstash-1.4.2/files':
+  file { 'C:/ProgramData/logstash-1.4.2/scripts':
     source             => 'puppet:///modules/windows_role_logstash',
     recurse            => true,
     source_permissions => ignore,
