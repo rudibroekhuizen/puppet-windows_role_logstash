@@ -39,7 +39,7 @@ class windows_role_logstash (
   $configfile_hash = undef,
   ) {
 
-   # JSON magic
+  # JSON magic
   package { jq:
     ensure   => 1.5,
     provider => chocolatey,
