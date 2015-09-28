@@ -45,6 +45,7 @@ class windows_role_logstash (
     provider => chocolatey,
   }
   
+  # Install Logstash
   class { 'windows_logstash':
     configfile_hash => $configfile_hash,
     require         => Package ["jq"],
